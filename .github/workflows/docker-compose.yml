@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  mc:
+    image: itzg/minecraft-server
+    container_name: mc-server
+    ports:
+      - "25565:25565"
+    environment:
+      EULA: "TRUE"
+      TYPE: "PAPER"
+      VERSION: "1.21.1"
+      MEMORY: "2G"
+      MOTD: "Server Minecraft - quick setup"
+      DIFFICULTY: "normal"
+      MODE: "survival"
+      ONLINE_MODE: "TRUE"
+    volumes:
+      - ./data:/data
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
